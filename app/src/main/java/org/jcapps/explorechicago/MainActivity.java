@@ -16,6 +16,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -27,11 +28,16 @@ public class MainActivity extends AppCompatActivity
 //    Intent mBakeryIntent;
     NavigationView navigationView = null;
     Toolbar toolbar = null;
+    ImageView image;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        image = (ImageView) findViewById(R.id.image_main);
+        image.setImageResource(R.drawable.chinatownsign);
+        image.setScaleType(ImageView.ScaleType.CENTER_CROP);
 
         // Pushing MapView Fragment
 //        Fragment fragment = Fragment.instantiate(this, BakeryFragment.class.getName());
@@ -101,11 +107,11 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
+            image.setImageDrawable(null);
             Fragment fragment = Fragment.instantiate(this, BakeryFragment.class.getName());
             android.support.v4.app.FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.fragment_container, fragment);
             ft.commit();
-
 
         } else if (id == R.id.nav_gallery) {
 
@@ -124,8 +130,4 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    //@Override
-    //public void onMapReady(GoogleMap googleMap) {
-
-   // }
 }

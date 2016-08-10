@@ -41,14 +41,6 @@ public class BakeryFragment extends Fragment implements OnMapReadyCallback{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-//        @Override
-//        public void onMapReady(GoogleMap googleMap) {
-//            mMap = googleMap;
-       // SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-         //       .findFragmentById(R.id.map);
-//        MapFragment mapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.map);
-//        mapFragment.getMapAsync(this);
-
 
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_bakery, container, false);
