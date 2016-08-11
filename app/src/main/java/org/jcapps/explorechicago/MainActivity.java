@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.nav_bakery) {
             image.setImageDrawable(null);
             Fragment fragment = Fragment.instantiate(this, BakeryFragment.class.getName());
             android.support.v4.app.FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
@@ -119,11 +119,11 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_manage) {
 
-        } else if (id == R.id.nav_share) {
+        } //else if (id == R.id.nav_share) {
 
-        } else if (id == R.id.nav_send) {
+//        } else if (id == R.id.nav_send) {
 
-        }
+//        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
