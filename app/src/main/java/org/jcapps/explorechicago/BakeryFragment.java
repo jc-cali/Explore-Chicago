@@ -73,7 +73,7 @@ public class BakeryFragment extends Fragment implements OnMapReadyCallback{
         // Create Bakery Markers List
         List<Marker> markersList = new ArrayList<Marker>();
         Marker chiuquon = mMap.addMarker(new MarkerOptions().position(new LatLng(41.851629, -87.63221999999996)).title("Chiu Quon Bakery").snippet("2242 S. Wentworth Ave."));
-        Marker feida = mMap.addMarker(new MarkerOptions().position(new LatLng(41.8520082, -87.63221999999996)).title("Mui's Feida Bakery").snippet("2228 S. Wentworth Ave."));
+        Marker feida = mMap.addMarker(new MarkerOptions().position(new LatLng(41.8520082, -87.63221999999996)).title("Feida Bakery").snippet("2228 S. Wentworth Ave."));
         Marker stanna = mMap.addMarker(new MarkerOptions().position(new LatLng(41.853549, -87.634411)).title("Saint Anna Bakery").snippet("2158 S Archer Ave."));
         Marker captain = mMap.addMarker(new MarkerOptions().position(new LatLng(41.8537, -87.634759)).title("Captain Cafe and Bakery").snippet("2161A S. China Place"));
         Marker cafedevictoria = mMap.addMarker(new MarkerOptions().position(new LatLng(41.85661749999999, -87.63863329999998)).title("Cafe De Victoria").snippet("1835 S. Canal Street"));

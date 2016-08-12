@@ -26,13 +26,15 @@ public class BusinessDBHelper extends SQLiteOpenHelper {
     public static final String COL_STATE = "STATE";
     public static final String COL_ZIP = "ZIP";
     public static final String COL_PHONE = "PHONE";
+    public static final String COL_HOURS = "HOURS";
+    public static final String COL_WEB = "WEB";
     public static final String COL_FAVORITE = "FAVORITE";
 
-    public static final String[] BUSINESS_COLUMNS = {COL_ID,COL_CATEGORY,COL_NAME,COL_ADDRESS,COL_CITY,COL_STATE,COL_ZIP,COL_PHONE,COL_FAVORITE};
+    public static final String[] BUSINESS_COLUMNS = {COL_ID,COL_CATEGORY,COL_NAME,COL_ADDRESS,COL_CITY,COL_STATE,COL_ZIP,COL_PHONE,COL_HOURS,COL_FAVORITE};
 
     private static final String CREATE_BUSINESS_TABLE =
         "CREATE TABLE IF NOT EXISTS " + BUSINESS_TABLE_NAME +
-                                 " (" + COL_ID + " INTEGER," +
+                                 " (" + COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                                         COL_CATEGORY + " TEXT," +
                                         COL_NAME + " TEXT," +
                                         COL_ADDRESS + " TEXT," +
@@ -40,9 +42,11 @@ public class BusinessDBHelper extends SQLiteOpenHelper {
                                         COL_STATE + " TEXT," +
                                         COL_ZIP + " TEXT," +
                                         COL_PHONE + " TEXT," +
+                                        COL_HOURS + " TEXT," +
+                                        COL_WEB + " TEXT," +
                                         COL_FAVORITE + " TEXT);" ;
 
-    private static final String DELETE_BUSINSS =
+    private static final String DELETE_BUSINESS =
             "DELETE FROM " + BUSINESS_TABLE_NAME + ";";
 
     private static final String DROP_BUSINESS_TABLE = "DROP TABLE IF EXISTS " + BUSINESS_TABLE_NAME + ";";
@@ -76,7 +80,6 @@ public class BusinessDBHelper extends SQLiteOpenHelper {
         db.execSQL(DROP_BUSINESS_TABLE);
         onCreate(db);
     }
-
 
 
     public Cursor getBakeryList(){
@@ -181,6 +184,30 @@ public class BusinessDBHelper extends SQLiteOpenHelper {
                 selection,
                 selectionArgs
         );
+    }
+
+    public long insertBusiness(String category, String name, String address, String city, String state, String zip, String phone, String hours, String web) {
+
+        int favorite = 0; // set all favorite flags to 0
+
+        ContentValues values = new ContentValues();
+        // values.put(COL_ID, id);                       // autoincrement
+        values.put(COL_CATEGORY, category);
+        values.put(COL_NAME, name);
+        values.put(COL_ADDRESS, address);
+        values.put(COL_CITY, city);
+        values.put(COL_STATE, state);
+        values.put(COL_ZIP, zip);
+        values.put(COL_PHONE, phone);
+        values.put(COL_HOURS, hours);
+        values.put(COL_WEB, web);
+        values.put(COL_FAVORITE, favorite);
+
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        long returnId = db.insert(BUSINESS_TABLE_NAME, null, values);
+        db.close();
+        return returnId;
     }
 
     public int deleteBusiness(int id){

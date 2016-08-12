@@ -7,10 +7,10 @@ import java.io.Serializable;
  */
 public class Business implements Serializable {
     private int id;
-    private String category, name, address, city, state, zip, phone;
+    private String category, name, address, city, state, zip, phone, hours, web, favorite;
 
 
-    public Business(int id, String category, String name, String address, String city, String state, String zip, String phone) {
+    public Business(int id, String category, String name, String address, String city, String state, String zip, String phone, String hours, String web, String favorite) {
         this.id = id;
         this.category = category;
         this.name = name;
@@ -19,6 +19,17 @@ public class Business implements Serializable {
         this.state = state;
         this.zip = zip;
         this.phone = phone;
+        this.hours = hours;
+        this.web = web;
+        this.favorite = favorite;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getCategory() {
+        return category;
     }
 
     public String getName() {
@@ -45,15 +56,32 @@ public class Business implements Serializable {
         return phone;
     }
 
+    public String getHours() {
+        return hours;
+    }
+
+    public String getWeb() {
+        return web;
+    }
+
+    public String getFavorite() {
+        return favorite;
+    }
+
     @Override
     public String toString() {
         return "Business{" +
-                "name='" + name + '\'' +
+                "id=" + id +
+                ", category='" + category + '\'' +
+                ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
                 ", city='" + city + '\'' +
                 ", state='" + state + '\'' +
                 ", zip='" + zip + '\'' +
                 ", phone='" + phone + '\'' +
+                ", hours='" + hours + '\'' +
+                ", web='" + web + '\'' +
+                ", favorite='" + favorite + '\'' +
                 '}';
     }
 }
