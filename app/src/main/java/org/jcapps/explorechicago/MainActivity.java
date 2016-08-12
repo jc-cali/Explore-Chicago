@@ -1,5 +1,6 @@
 package org.jcapps.explorechicago;
 
+import android.database.Cursor;
 import android.support.v4.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
@@ -38,7 +39,9 @@ public class MainActivity extends AppCompatActivity
 
         db = BusinessDBHelper.getInstance(this);
 
-        importDb();
+        if (getCount() == 0) {
+            importDb();
+        }
 
         image = (ImageView) findViewById(R.id.image_main);
         image.setImageResource(R.drawable.chinatownsign);
@@ -149,6 +152,20 @@ public class MainActivity extends AppCompatActivity
         db.insertBusiness("Bakery", "Tasty Place Bakery and Cafe", "2339A S. Wentworth Ave.",  "Chicago", "IL", "60616", "(312) 225-5678", "Hours: M-Su 7:30am-10pm", null);
         db.insertBusiness("Bakery", "Tasty Place Bakery and Cafe", "2306 S. Wentworth Ave.",  "Chicago", "IL", "60616", "(312) 842-8802", "Hours: M-Su 7:30am-10pm", null);
 
+    }
+
+    public int getCount() {
+        int c = 0;
+        try {
+            db = BusinessDBHelper.getInstance(this);
+            c = db.getTableCount();
+        }
+        finally {
+            if (db != null) {
+                db.close();
+            }
+        }
+        return c;
     }
 
 }

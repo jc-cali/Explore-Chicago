@@ -29,6 +29,7 @@ public class BusinessDBHelper extends SQLiteOpenHelper {
     public static final String COL_HOURS = "HOURS";
     public static final String COL_WEB = "WEB";
     public static final String COL_FAVORITE = "FAVORITE";
+//    public static SQLiteDatabase db;
 
     public static final String[] BUSINESS_COLUMNS = {COL_ID,COL_CATEGORY,COL_NAME,COL_ADDRESS,COL_CITY,COL_STATE,COL_ZIP,COL_PHONE,COL_HOURS,COL_FAVORITE};
 
@@ -217,6 +218,18 @@ public class BusinessDBHelper extends SQLiteOpenHelper {
                 new String[]{String.valueOf(id)});
         db.close();
         return deleteNum;
+    }
+    public int getTableCount(){
+        SQLiteDatabase db = getReadableDatabase();
+//        db = this.getReadableDatabase();
+        String query = "select count(*) from business";
+        Cursor  c = db.rawQuery(query, null);
+            if (c.moveToFirst()) {
+                return c.getInt(0);
+            }
+        c.close();
+        return 0;
+
     }
 
 }

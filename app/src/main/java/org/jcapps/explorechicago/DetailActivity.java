@@ -25,17 +25,17 @@ public class DetailActivity extends AppCompatActivity {
 
         mImage = (ImageView) findViewById(R.id.iv_det_image);
 
-        Restaurant restaurant = (Restaurant) getIntent().getSerializableExtra("RESTAURANT");
-
-        mName.setText(restaurant.name);
-        mCategories.setText(restaurant.categories);
-        mSnippetText.setText(restaurant.snippetText);
-        mAddress.setText(restaurant.address);
-        mPhone.setText(restaurant.phone);
-        mReviews.setText(String.format(Locale.ENGLISH, "%d reviews", restaurant.reviewCount));
-        mDistance.setText(String.format(Locale.ENGLISH, "%.0f m", restaurant.distance));
-
-        Picasso.with(this).load(restaurant.image).placeholder(R.drawable.ghost).resize(300,300).into(mImage);
+//        Restaurant restaurant = (Restaurant) getIntent().getSerializableExtra("RESTAURANT");
+//
+//        mName.setText(restaurant.name);
+//        mCategories.setText(restaurant.categories);
+//        mSnippetText.setText(restaurant.snippetText);
+//        mAddress.setText(restaurant.address);
+//        mPhone.setText(restaurant.phone);
+//        mReviews.setText(String.format(Locale.ENGLISH, "%d reviews", restaurant.reviewCount));
+//        mDistance.setText(String.format(Locale.ENGLISH, "%.0f m", restaurant.distance));
+//
+//        Picasso.with(this).load(restaurant.image).placeholder(R.drawable.ghost).resize(300,300).into(mImage);
 
     }
 }
