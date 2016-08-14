@@ -90,7 +90,9 @@ public class MainActivity extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
-        return true;
+        // Return false to hide/disable the settings icon (3 dots) on the app. Return true to turn back on.
+        return false;
+//        return true;
     }
 
     @Override
@@ -121,13 +123,13 @@ public class MainActivity extends AppCompatActivity
             ft.replace(R.id.fragment_container, fragment);
             ft.commit();
 
-        } else if (id == R.id.nav_gallery) {
+        } //else if (id == R.id.nav_gallery) {
 
-        } else if (id == R.id.nav_slideshow) {
+//        } else if (id == R.id.nav_slideshow) {
 
-        } else if (id == R.id.nav_manage) {
+//        } else if (id == R.id.nav_manage) {
 
-        } //else if (id == R.id.nav_share) {
+//        } else if (id == R.id.nav_share) {
 
 //        } else if (id == R.id.nav_send) {
 

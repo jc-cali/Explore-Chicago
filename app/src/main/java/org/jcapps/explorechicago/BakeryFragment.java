@@ -9,9 +9,12 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdate;
@@ -76,6 +79,7 @@ public class BakeryFragment extends Fragment implements OnMapReadyCallback{
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+
 //        Context ctx = getContext(); // singleton
 //        BusinessDBHelper db = BusinessDBHelper.getInstance(ctx);
 
@@ -155,13 +159,46 @@ public class BakeryFragment extends Fragment implements OnMapReadyCallback{
             @Override
             public boolean onMarkerClick(Marker marker) {
                 Toast.makeText(getActivity(),
-                    marker.getTitle() + "\n" + marker.getSnippet(),
-                    Toast.LENGTH_LONG).show();
+                    "Click marker for directions icon on lower right corner ",
+                    Toast.LENGTH_SHORT).show();
                 mMap.moveCamera(CameraUpdateFactory.zoomTo(20));
 //                mMap.animateCamera(CameraUpdateFactory.newLatLng(marker.getPosition()));
                 return false;
             }
         });
+
+        mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
+            @Override
+            public void onInfoWindowClick(Marker marker) {
+                Toast.makeText(getActivity(),
+                        marker.getTitle() + "\n" + marker.getSnippet(),
+                        Toast.LENGTH_LONG).show();
+
+
+//                // get your custom_toast.xml ayout
+//                LayoutInflater inflater = getLayoutInflater();
+//                View layout = inflater.inflate(R.layout.custom_toast,
+//                        (ViewGroup) layout.findViewById(R.id.custom_toast_container));
+//
+//                // set a dummy image
+//                ImageView image = (ImageView) layout.findViewById(R.id.image);
+//                image.setImageResource(R.drawable.dragon);
+//
+//                // set a message
+//                TextView text = (TextView) layout.findViewById(R.id.text);
+//                text.setText("Button is clicked!");
+//
+//                // Toast...
+//                Toast toast = new Toast(getActivity());
+//                toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+//                toast.setDuration(Toast.LENGTH_LONG);
+//                toast.setView(layout);
+//                toast.show();
+//
+
+            }
+        });
+
     }
 }
 
