@@ -141,16 +141,16 @@ public class MainActivity extends AppCompatActivity
     public void importDb() {
 
         // import Bakery Businesses
-        db.insertBusiness("Bakery", "Chiu Quon Bakery", "2242 S. Wentworth Ave.",  "Chicago", "IL", "60616", "(312) 225-6608", "Hours: M-Su 7am-9:30pm", "www.cqbakery.com");
-        db.insertBusiness("Bakery", "Feida Bakery", "2228 S. Wentworth Ave",  "Chicago", "IL", "60616", "(312) 808-1113", "Hours: M-Su 7am-9pm", null);
-        db.insertBusiness("Bakery", "Saint Anna Bakery and Cafe", "2158 S. Archer Ave.",  "Chicago", "IL", "60616", "(312) 225-3168", "Hours: M-Su 8am-8pm", null);
-        db.insertBusiness("Bakery", "Captain Cafe and Bakery", "2161A S. China Place",  "Chicago", "IL", "60616", "(312) 791-0888", "Hours: M-Su 7:30am-8:30pm", null);
-        db.insertBusiness("Bakery", "Cafe De Victoria (inside Richwell Market)", "1835 S. Canal Street",  "Chicago", "IL", "60616", "(312) 492-7030", "Hours: M-Su 9am-8pm", null);
-        db.insertBusiness("Bakery", "Dim Dim Dim-Sum and Bakery", "2820 S. Wentworth Ave.",  "Chicago", "IL", "60616", "(312) 842-2822", "Hours: M-Su 7:30am-9:30pm", "www.locu.com");
-        db.insertBusiness("Bakery", "Golden Apple Cafe and Bakery", "2409 S. Wentworth Ave.",  "Chicago", "IL", "60616", "(312) 842-6888", "Hours: M-Su 7am-6pm", null);
-        db.insertBusiness("Bakery", "Sunlight Cafe and Bakery", "227 W. Cermak Road",  "Chicago", "IL", "60616", "(312) 674-1368", "Hours: M-Su 7am-8pm", "www.sunlightcafechicago.com");
-        db.insertBusiness("Bakery", "Tasty Place Bakery and Cafe", "2339A S. Wentworth Ave.",  "Chicago", "IL", "60616", "(312) 225-5678", "Hours: M-Su 7:30am-10pm", null);
-        db.insertBusiness("Bakery", "Tasty Place Bakery and Cafe", "2306 S. Wentworth Ave.",  "Chicago", "IL", "60616", "(312) 842-8802", "Hours: M-Su 7:30am-10pm", null);
+        db.insertBusiness("Bakery", "chiuquon", "Chiu Quon Bakery", "2242 S. Wentworth Ave.",  "Chicago", "IL", "60616", "(312) 225-6608", "Hours: M-Su 7am-9:30pm", "www.cqbakery.com", "41.851629", "-87.63221999999996");
+        db.insertBusiness("Bakery", "feida", "Feida Bakery", "2228 S. Wentworth Ave",  "Chicago", "IL", "60616", "(312) 808-1113", "Hours: M-Su 7am-9pm", null, "41.8520082", "-87.63221999999996");
+        db.insertBusiness("Bakery", "stanna", "Saint Anna Bakery and Cafe", "2158 S. Archer Ave.",  "Chicago", "IL", "60616", "(312) 225-3168", "Hours: M-Su 8am-8pm", null, "41.853549", "-87.634411");
+        db.insertBusiness("Bakery", "captain", "Captain Cafe and Bakery", "2161A S. China Place",  "Chicago", "IL", "60616", "(312) 791-0888", "Hours: M-Su 7:30am-8:30pm", null, "41.8537", "-87.634759");
+        db.insertBusiness("Bakery", "cafedevictoria", "Cafe De Victoria (inside Richwell Market)", "1835 S. Canal Street",  "Chicago", "IL", "60616", "(312) 492-7030", "Hours: M-Su 9am-8pm", null, "41.85661749999999", "-87.63863329999998");
+        db.insertBusiness("Bakery", "dimdim", "Dim Dim Dim-Sum and Bakery", "2820 S. Wentworth Ave.",  "Chicago", "IL", "60616", "(312) 842-2822", "Hours: M-Su 7:30am-9:30pm", "www.locu.com", "41.8419362", "-87.6322435");
+        db.insertBusiness("Bakery", "goldenapple", "Golden Apple Cafe and Bakery", "2409 S. Wentworth Ave.",  "Chicago", "IL", "60616", "(312) 842-6888", "Hours: M-Su 7am-6pm", null, "41.8488125", "-87.6316028");
+        db.insertBusiness("Bakery", "sunlight", "Sunlight Cafe and Bakery", "227 W. Cermak Road",  "Chicago", "IL", "60616", "(312) 674-1368", "Hours: M-Su 7am-8pm", "www.sunlightcafechicago.com", "41.8526102", "-87.63302720000002");
+        db.insertBusiness("Bakery", "tastyplace1", "Tasty Place Bakery and Cafe", "2339A S. Wentworth Ave.",  "Chicago", "IL", "60616", "(312) 225-5678", "Hours: M-Su 7:30am-10pm", null, "41.8499357", "-87.6317359");
+        db.insertBusiness("Bakery", "tastyplace2", "Tasty Place Bakery and Cafe", "2306 S. Wentworth Ave.",  "Chicago", "IL", "60616", "(312) 842-8802", "Hours: M-Su 7:30am-10pm", null, "41.8507099", "-87.63222180000002");
 
     }
 
