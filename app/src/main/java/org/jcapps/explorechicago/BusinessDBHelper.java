@@ -32,7 +32,7 @@ public class BusinessDBHelper extends SQLiteOpenHelper {
     public static final String COL_POSITION = "POSITION";
 //    public static SQLiteDatabase db;
 
-    public static final String[] BUSINESS_COLUMNS = {COL_ID,COL_CATEGORY,COL_NAME,COL_ADDRESS,COL_CITY,COL_STATE,COL_ZIP,COL_PHONE,COL_HOURS,COL_FAVORITE,COL_POSITION};
+    public static final String[] BUSINESS_COLUMNS = {COL_ID,COL_CATEGORY,COL_NAME,COL_ADDRESS,COL_CITY,COL_STATE,COL_ZIP,COL_PHONE,COL_HOURS,COL_WEB,COL_FAVORITE,COL_POSITION};
 
     private static final String CREATE_BUSINESS_TABLE =
         "CREATE TABLE IF NOT EXISTS " + BUSINESS_TABLE_NAME +

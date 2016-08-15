@@ -9,6 +9,8 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -149,37 +151,67 @@ public class BakeryFragment extends Fragment implements OnMapReadyCallback{
             public void onInfoWindowClick(Marker marker) {
                 Double latitude = marker.getPosition().latitude;
                 Double longitude = marker.getPosition().longitude;
-                Toast.makeText(getActivity(),
-                        marker.getTitle() + "\n" + marker.getSnippet(),
-//                        marker.getTitle() + "\n" + marker.getSnippet() + "\n" + marker.getPosition() + "\n" + "Latitude="+ latitude + "\n" + "Longitude=" + longitude,
-                        Toast.LENGTH_LONG).show();
+//                Toast.makeText(getActivity(),
+//                        marker.getTitle() + "\n" + marker.getSnippet(),
+//                        Toast.LENGTH_LONG).show();
 
-//                cursor = db.getmarkerInfo(String.valueOf(latitude) + "," + String.valueOf(longitude));
-//
-//                mDetailIntent = new Intent(getActivity(), DetailActivity.class);
-//
-//                String name = cursor.getString(cursor.getColumnIndex("NAME"));
-//                String address = cursor.getString(cursor.getColumnIndex("ADDRESS"));
-//                String city = cursor.getString(cursor.getColumnIndex("CITY"));
-//                String state = cursor.getString(cursor.getColumnIndex("STATE"));
-//                String zip = cursor.getString(cursor.getColumnIndex("ZIP"));
-//                String phone = cursor.getString(cursor.getColumnIndex("PHONE"));
-//                String hours = cursor.getString(cursor.getColumnIndex("HOURS"));
-//                String web = cursor.getString(cursor.getColumnIndex("WEB"));
-//
-//                mDetailIntent.putExtra("NAME", name);
-//                mDetailIntent.putExtra("ADDRESS", address);
-//                mDetailIntent.putExtra("CITY", city);
-//                mDetailIntent.putExtra("STATE", state);
-//                mDetailIntent.putExtra("ZIP", zip);
-//                mDetailIntent.putExtra("PHONE", phone);
-//                mDetailIntent.putExtra("HOURS", hours);
-//                mDetailIntent.putExtra("WEB", web);
-//                startActivity(mDetailIntent);
+                cursor = db.getmarkerInfo(String.valueOf(latitude) + "," + String.valueOf(longitude));
 
+
+                if(cursor!=null) {
+                    cursor.moveToFirst();
+
+                    mDetailIntent = new Intent(getActivity(), DetailActivity.class);
+
+                    String name = cursor.getString(cursor.getColumnIndex("NAME"));
+                    String address = cursor.getString(cursor.getColumnIndex("ADDRESS"));
+                    String city = cursor.getString(cursor.getColumnIndex("CITY"));
+                    String state = cursor.getString(cursor.getColumnIndex("STATE"));
+                    String zip = cursor.getString(cursor.getColumnIndex("ZIP"));
+                    String phone = cursor.getString(cursor.getColumnIndex("PHONE"));
+                    String hours = cursor.getString(cursor.getColumnIndex("HOURS"));
+                    String web = cursor.getString(cursor.getColumnIndex("WEB"));
+
+                    mDetailIntent.putExtra("NAME", name);
+                    mDetailIntent.putExtra("ADDRESS", address);
+                    mDetailIntent.putExtra("CITY", city);
+                    mDetailIntent.putExtra("STATE", state);
+                    mDetailIntent.putExtra("ZIP", zip);
+                    mDetailIntent.putExtra("PHONE", phone);
+                    mDetailIntent.putExtra("HOURS", hours);
+                    mDetailIntent.putExtra("WEB", web);
+                    startActivity(mDetailIntent);
+                }
+                cursor.close();
             }
         });
 
     }
+//    @Override
+//    public void onBackPressed() {
+//        List<Marker> markersList = new ArrayList<Marker>();
+//
+//        /**create for loop for get the latLngbuilder from the marker list*/
+//        LatLngBounds.Builder builder = new LatLngBounds.Builder();
+//        for (Marker m : markersList) {
+//            builder.include(m.getPosition());
+//        }
+//        /**initialize the padding for map boundary*/
+//        int padding = 50;
+//        /**create the bounds from latlngBuilder to set into map camera*/
+//        LatLngBounds bounds = builder.build();
+//        /**create the camera with bounds and padding to set into map*/
+//        final CameraUpdate cu = CameraUpdateFactory.newLatLngBounds(bounds, padding);
+//        /**call the map call back to know map is loaded or not*/
+//        mMap.setOnMapLoadedCallback(new GoogleMap.OnMapLoadedCallback() {
+//            @Override
+//            public void onMapLoaded() {
+//                /**set animated zoom camera into map*/
+//                mMap.animateCamera(cu);
+//            }
+//        });
+//
+//    }
+
 }
 
