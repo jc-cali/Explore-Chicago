@@ -20,7 +20,6 @@ public class BusinessDBHelper extends SQLiteOpenHelper {
 
     public static final String COL_ID = "_id";
     public static final String COL_CATEGORY = "CATEGORY";
-    public static final String COL_NAMECODE = "NAMECODE";
     public static final String COL_NAME = "NAME";
     public static final String COL_ADDRESS = "ADDRESS";
     public static final String COL_CITY = "CITY";
@@ -30,17 +29,15 @@ public class BusinessDBHelper extends SQLiteOpenHelper {
     public static final String COL_HOURS = "HOURS";
     public static final String COL_WEB = "WEB";
     public static final String COL_FAVORITE = "FAVORITE";
-    public static final String COL_LATITUDE = "LATITUDE";
-    public static final String COL_LONGITUDE = "LONGITUDE";
+    public static final String COL_POSITION = "POSITION";
 //    public static SQLiteDatabase db;
 
-    public static final String[] BUSINESS_COLUMNS = {COL_ID,COL_CATEGORY,COL_NAMECODE,COL_NAME,COL_ADDRESS,COL_CITY,COL_STATE,COL_ZIP,COL_PHONE,COL_HOURS,COL_FAVORITE,COL_LATITUDE,COL_LONGITUDE};
+    public static final String[] BUSINESS_COLUMNS = {COL_ID,COL_CATEGORY,COL_NAME,COL_ADDRESS,COL_CITY,COL_STATE,COL_ZIP,COL_PHONE,COL_HOURS,COL_FAVORITE,COL_POSITION};
 
     private static final String CREATE_BUSINESS_TABLE =
         "CREATE TABLE IF NOT EXISTS " + BUSINESS_TABLE_NAME +
                                  " (" + COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                                         COL_CATEGORY + " TEXT," +
-                                        COL_NAMECODE + " TEXT," +
                                         COL_NAME + " TEXT," +
                                         COL_ADDRESS + " TEXT," +
                                         COL_CITY + " TEXT," +
@@ -50,8 +47,7 @@ public class BusinessDBHelper extends SQLiteOpenHelper {
                                         COL_HOURS + " TEXT," +
                                         COL_WEB + " TEXT," +
                                         COL_FAVORITE + " TEXT," +
-                                        COL_LATITUDE + " TEXT," +
-                                        COL_LONGITUDE + " TEXT);" ;
+                                        COL_POSITION + " TEXT);" ;
 
     private static final String DELETE_BUSINESS =
             "DELETE FROM " + BUSINESS_TABLE_NAME + ";";
@@ -105,6 +101,22 @@ public class BusinessDBHelper extends SQLiteOpenHelper {
                 COL_NAME,  // g. order by
                 null); // h. limit
 
+        return cursor;
+    }
+
+    public Cursor getmarkerInfo(String query){
+        SQLiteDatabase db = getReadableDatabase();
+
+        Cursor cursor = db.query(BUSINESS_TABLE_NAME, // a. table
+                BUSINESS_COLUMNS, // b. column names
+                COL_POSITION + " = ?", // c. selections
+                new String[]{query}, // d. selections args
+                null, // e. group by
+                null, // f. having
+                null, // g. order by
+                null); // h. limit
+
+        //      Cursor cursor = db.rawQuery("select * from business where position = ?",new String[]{query});
         return cursor;
     }
 
@@ -193,14 +205,13 @@ public class BusinessDBHelper extends SQLiteOpenHelper {
         );
     }
 
-    public long insertBusiness(String category, String namecode, String name, String address, String city, String state, String zip, String phone, String hours, String web, String latitude, String longitude) {
+    public long insertBusiness(String category, String name, String address, String city, String state, String zip, String phone, String hours, String web, String position) {
 
         int favorite = 0; // set all favorite flags to 0
 
         ContentValues values = new ContentValues();
         // values.put(COL_ID, id);                       // autoincrement
         values.put(COL_CATEGORY, category);
-        values.put(COL_NAMECODE, namecode);
         values.put(COL_NAME, name);
         values.put(COL_ADDRESS, address);
         values.put(COL_CITY, city);
@@ -210,8 +221,7 @@ public class BusinessDBHelper extends SQLiteOpenHelper {
         values.put(COL_HOURS, hours);
         values.put(COL_WEB, web);
         values.put(COL_FAVORITE, favorite);
-        values.put(COL_LATITUDE, latitude);
-        values.put(COL_LONGITUDE, longitude);
+        values.put(COL_POSITION, position);
 
         SQLiteDatabase db = this.getWritableDatabase();
 

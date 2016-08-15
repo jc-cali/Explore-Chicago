@@ -1,15 +1,18 @@
 package org.jcapps.explorechicago;
 
+import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.text.NumberFormat;
 import java.util.Locale;
 
 public class DetailActivity extends AppCompatActivity {
 
-    TextView mName, mAddress, mCity, mState, mZip, mPhone, mWeb;
+    TextView mTxtName, mTxtAddress, mTxtCity, mTxtState, mTxtZip, mTxtPhone, mTxtHours, mTxtWeb;
     ImageView mImage;
 
     @Override
@@ -17,23 +20,34 @@ public class DetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
-        mName = (TextView) findViewById(R.id.tv_det_name);
-        mAddress = (TextView) findViewById(R.id.tv_det_address);
-        mCity = (TextView) findViewById(R.id.tv_det_city);
-        mPhone = (TextView) findViewById(R.id.tv_det_phone);
-        mWeb = (TextView) findViewById(R.id.tv_det_web);
+        mTxtName = (TextView) findViewById(R.id.tv_det_name);
+        mTxtAddress = (TextView) findViewById(R.id.tv_det_address);
+        mTxtCity = (TextView) findViewById(R.id.tv_det_city);
+        mTxtPhone = (TextView) findViewById(R.id.tv_det_phone);
+        mTxtHours = (TextView) findViewById(R.id.tv_det_hours);
+        mTxtWeb = (TextView) findViewById(R.id.tv_det_web);
 
         mImage = (ImageView) findViewById(R.id.iv_det_image);
 
-//        Restaurant restaurant = (Restaurant) getIntent().getSerializableExtra("RESTAURANT");
-//
-//        mName.setText(restaurant.name);
-//        mCategories.setText(restaurant.categories);
-//        mSnippetText.setText(restaurant.snippetText);
-//        mAddress.setText(restaurant.address);
-//        mPhone.setText(restaurant.phone);
-//        mReviews.setText(String.format(Locale.ENGLISH, "%d reviews", restaurant.reviewCount));
-//        mDistance.setText(String.format(Locale.ENGLISH, "%.0f m", restaurant.distance));
+        Intent markerIntent = getIntent();
+        String name = markerIntent.getStringExtra("NAME");
+        String address = markerIntent.getStringExtra("ADDRESS");
+        String city = markerIntent.getStringExtra("CITY");
+        String state = markerIntent.getStringExtra("STATE");
+        String zip = markerIntent.getStringExtra("ZIP");
+        String phone = markerIntent.getStringExtra("PHONE");
+        String hours = markerIntent.getStringExtra("HOURS");
+        String web = markerIntent.getStringExtra("WEB");
+
+
+
+        mTxtName.setText(name);
+        mTxtAddress.setText(address);
+        mTxtCity.setText(city + ", " + state + " " + zip);
+        mTxtPhone.setText(phone);
+        mTxtHours.setText(hours);
+        mTxtWeb.setText(web);
+
 //
 //        Picasso.with(this).load(restaurant.image).placeholder(R.drawable.ghost).resize(300,300).into(mImage);
 
