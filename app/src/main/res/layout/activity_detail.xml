@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        app:cardBackgroundColor="#90CAF9"
+        app:cardBackgroundColor="#1B5E20"
         app:cardElevation="15dp"
         app:cardCornerRadius="10dp"
         app:cardUseCompatPadding="true">
@@ -36,17 +36,20 @@
             <TextView
                 android:id="@+id/tv_det_name"
                 android:text="Name"
-                android:padding="4dp"
+                android:padding="8dp"
+                android:textColor="@color/colorText"
                 android:layout_below="@id/iv_det_image"
                 android:textStyle="bold"
-                android:textSize="18sp"
+                android:textSize="20sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
             <TextView
                 android:id="@+id/tv_det_address"
                 android:text="Address"
-                android:padding="4dp"
+                android:textSize="15sp"
+                android:textColor="@color/colorText"
+                android:padding="8dp"
                 android:layout_below="@id/tv_det_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
@@ -54,7 +57,9 @@
             <TextView
                 android:id="@+id/tv_det_city"
                 android:text="City"
-                android:padding="4dp"
+                android:textSize="15sp"
+                android:textColor="@color/colorText"
+                android:padding="8dp"
                 android:layout_below="@id/tv_det_address"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
@@ -62,9 +67,11 @@
             <TextView
                 android:id="@+id/tv_det_phone"
                 android:text="Phone"
+                android:textSize="15sp"
+                android:textColor="@color/colorText"
                 android:autoLink="phone"
                 android:linksClickable="true"
-                android:padding="4dp"
+                android:padding="8dp"
                 android:layout_below="@id/tv_det_city"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
@@ -72,7 +79,9 @@
             <TextView
                 android:id="@+id/tv_det_hours"
                 android:text="Hours"
-                android:padding="4dp"
+                android:textSize="15sp"
+                android:textColor="@color/colorText"
+                android:padding="8dp"
                 android:layout_below="@id/tv_det_phone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
@@ -80,8 +89,10 @@
             <TextView
                 android:id="@+id/tv_det_web"
                 android:text="Web"
+                android:textSize="15sp"
+                android:textColor="@color/colorText"
                 android:autoLink="web"
-                android:padding="4dp"
+                android:padding="8dp"
                 android:layout_below="@id/tv_det_hours"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
