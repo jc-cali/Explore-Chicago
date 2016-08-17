@@ -121,16 +121,26 @@ public class BakeryFragment extends Fragment implements OnMapReadyCallback{
         }
         /**initialize the padding for map boundary*/
         int padding = 130;
+
         /**create the bounds from latlngBuilder to set into map camera*/
-        LatLngBounds bounds = builder.build();
+        final LatLngBounds bounds = builder.build();
+
+//        final LatLng center = bounds.getCenter();
+//        final CameraPosition cp = new CameraPosition.Builder().zoom(13).target(center).build();
+
         /**create the camera with bounds and padding to set into map*/
         final CameraUpdate cu = CameraUpdateFactory.newLatLngBounds(bounds, padding);
+
         /**call the map call back to know map is loaded or not*/
         mMap.setOnMapLoadedCallback(new GoogleMap.OnMapLoadedCallback() {
             @Override
             public void onMapLoaded() {
                 /**set animated zoom camera into map*/
                 mMap.animateCamera(cu);
+//                mMap.moveCamera(cu);
+               // mMap.stopAnimation();
+               // mMap.setLatLngBoundsForCameraTarget(bounds);
+//                mMap.moveCamera(CameraUpdateFactory.newCameraPosition(cp));
 
             }
         });
