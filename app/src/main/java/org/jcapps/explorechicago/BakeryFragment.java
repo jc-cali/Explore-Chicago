@@ -160,7 +160,7 @@ public class BakeryFragment extends Fragment implements OnMapReadyCallback{
                 if(cursor!=null) {
                     cursor.moveToFirst();
 
-                    mDetailIntent = new Intent(getActivity(), DetailActivity.class);
+//                    mDetailIntent = new Intent(getActivity(), DetailActivity.class);
 
                     String name = cursor.getString(cursor.getColumnIndex("NAME"));
                     String address = cursor.getString(cursor.getColumnIndex("ADDRESS"));
@@ -173,24 +173,35 @@ public class BakeryFragment extends Fragment implements OnMapReadyCallback{
                     String storeimage = cursor.getString(cursor.getColumnIndex("IMAGE"));
 
 
-//                    Bundle bundle=new Bundle();
-//                    bundle.putString("NAME", name);
-//                    //set Fragmentclass Arguments
-//                    DetailFragment fragobj=new DetailFragment();
-//                    fragobj.setArguments(bundle);
+                    DetailFragment detailFragment=new DetailFragment();
 
-                    mDetailIntent.putExtra("NAME", name);
-                    mDetailIntent.putExtra("ADDRESS", address);
-                    mDetailIntent.putExtra("CITY", city);
-                    mDetailIntent.putExtra("STATE", state);
-                    mDetailIntent.putExtra("ZIP", zip);
-                    mDetailIntent.putExtra("PHONE", phone);
-                    mDetailIntent.putExtra("HOURS", hours);
-                    mDetailIntent.putExtra("WEB", web);
-                    mDetailIntent.putExtra("IMAGE", storeimage);
-                    startActivity(mDetailIntent);
+                    getFragmentManager().beginTransaction().replace(R.id.fragment_container, detailFragment).commit();
+                    Bundle bundle=new Bundle();
+                    bundle.putString("NAME", name);
+                    bundle.putString("ADDRESS", address);
+                    bundle.putString("CITY", city);
+                    bundle.putString("STATE", state);
+                    bundle.putString("ZIP", zip);
+                    bundle.putString("PHONE", phone);
+                    bundle.putString("HOURS", hours);
+                    bundle.putString("WEB", web);
+                    bundle.putString("IMAGE", storeimage);
+                    //set Fragmentclass Arguments
+
+                    detailFragment.setArguments(bundle);
+
+//                    mDetailIntent.putExtra("NAME", name);
+//                    mDetailIntent.putExtra("ADDRESS", address);
+//                    mDetailIntent.putExtra("CITY", city);
+//                    mDetailIntent.putExtra("STATE", state);
+//                    mDetailIntent.putExtra("ZIP", zip);
+//                    mDetailIntent.putExtra("PHONE", phone);
+//                    mDetailIntent.putExtra("HOURS", hours);
+//                    mDetailIntent.putExtra("WEB", web);
+//                    mDetailIntent.putExtra("IMAGE", storeimage);
+//                    startActivity(mDetailIntent);
                 }
-                cursor.close();
+              //  cursor.close();
             }
         });
 
