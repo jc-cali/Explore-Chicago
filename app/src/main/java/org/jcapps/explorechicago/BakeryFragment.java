@@ -92,14 +92,14 @@ public class BakeryFragment extends Fragment implements OnMapReadyCallback{
         List<Marker> markersList = new ArrayList<Marker>();
         Marker chiuquon = mMap.addMarker(new MarkerOptions().position(new LatLng(41.851629,-87.63221999999996)).title("Chiu Quon Bakery").snippet("Click for store info"));
         Marker feida = mMap.addMarker(new MarkerOptions().position(new LatLng(41.8520082,-87.63221999999996)).title("Feida Bakery").snippet("Click for store info"));
-        Marker stanna = mMap.addMarker(new MarkerOptions().position(new LatLng(41.853549,-87.634411)).title("Saint Anna Bakery").snippet("Click for store info"));
+        Marker stanna = mMap.addMarker(new MarkerOptions().position(new LatLng(41.853549,-87.634411)).title("Saint Anna Bakery and Cafe").snippet("Click for store info"));
         Marker captain = mMap.addMarker(new MarkerOptions().position(new LatLng(41.8537,-87.634759)).title("Captain Cafe and Bakery").snippet("Click for store info"));
         Marker cafedevictoria = mMap.addMarker(new MarkerOptions().position(new LatLng(41.85661749999999,-87.63863329999998)).title("Cafe De Victoria\n(Inside Richwell Market)").snippet("Click for store info"));
         Marker dimdim = mMap.addMarker(new MarkerOptions().position(new LatLng(41.8419362,-87.6322435)).title("Dim Dim Dim-Sum and Bakery").snippet("Click for store info"));
         Marker goldenapple = mMap.addMarker(new MarkerOptions().position(new LatLng(41.8488125,-87.6316028)).title("Golden Apple Cafe and Bakery").snippet("Click for store info"));
         Marker sunlight = mMap.addMarker(new MarkerOptions().position(new LatLng(41.8526102,-87.63302720000002)).title("Sunlight Cafe and Bakery").snippet("Click for store info"));
-        Marker tastyplace1 = mMap.addMarker(new MarkerOptions().position(new LatLng(41.8499357,-87.6317359)).title("Tasty Place Bakery and Cafe").snippet("Click for store info"));
-        Marker tastyplace2 = mMap.addMarker(new MarkerOptions().position(new LatLng(41.8507099,-87.63222180000002)).title("Tasty Place Bakery and Cafe").snippet("Click for store info"));
+        Marker tastyplace1 = mMap.addMarker(new MarkerOptions().position(new LatLng(41.8507099,-87.63222180000002)).title("Tasty Place Bakery and Cafe (#1)").snippet("Click for store info"));
+        Marker tastyplace2 = mMap.addMarker(new MarkerOptions().position(new LatLng(41.8499357,-87.6317359)).title("Tasty Place Bakery and Cafe (#2)").snippet("Click for store info"));
 
         /**Put all the markers into arraylist*/
         markersList.add(chiuquon);
@@ -119,7 +119,7 @@ public class BakeryFragment extends Fragment implements OnMapReadyCallback{
             builder.include(m.getPosition());
         }
         /**initialize the padding for map boundary*/
-        int padding = 50;
+        int padding = 300;
         /**create the bounds from latlngBuilder to set into map camera*/
         LatLngBounds bounds = builder.build();
         /**create the camera with bounds and padding to set into map*/
@@ -170,6 +170,7 @@ public class BakeryFragment extends Fragment implements OnMapReadyCallback{
                     String phone = cursor.getString(cursor.getColumnIndex("PHONE"));
                     String hours = cursor.getString(cursor.getColumnIndex("HOURS"));
                     String web = cursor.getString(cursor.getColumnIndex("WEB"));
+                    String storeimage = cursor.getString(cursor.getColumnIndex("IMAGE"));
 
 
 //                    Bundle bundle=new Bundle();
@@ -186,6 +187,7 @@ public class BakeryFragment extends Fragment implements OnMapReadyCallback{
                     mDetailIntent.putExtra("PHONE", phone);
                     mDetailIntent.putExtra("HOURS", hours);
                     mDetailIntent.putExtra("WEB", web);
+                    mDetailIntent.putExtra("IMAGE", storeimage);
                     startActivity(mDetailIntent);
                 }
                 cursor.close();

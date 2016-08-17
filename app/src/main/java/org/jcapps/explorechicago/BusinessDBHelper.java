@@ -30,9 +30,10 @@ public class BusinessDBHelper extends SQLiteOpenHelper {
     public static final String COL_WEB = "WEB";
     public static final String COL_FAVORITE = "FAVORITE";
     public static final String COL_POSITION = "POSITION";
+    public static final String COL_IMAGE = "IMAGE";
 //    public static SQLiteDatabase db;
 
-    public static final String[] BUSINESS_COLUMNS = {COL_ID,COL_CATEGORY,COL_NAME,COL_ADDRESS,COL_CITY,COL_STATE,COL_ZIP,COL_PHONE,COL_HOURS,COL_WEB,COL_FAVORITE,COL_POSITION};
+    public static final String[] BUSINESS_COLUMNS = {COL_ID,COL_CATEGORY,COL_NAME,COL_ADDRESS,COL_CITY,COL_STATE,COL_ZIP,COL_PHONE,COL_HOURS,COL_WEB,COL_FAVORITE,COL_POSITION,COL_IMAGE};
 
     private static final String CREATE_BUSINESS_TABLE =
         "CREATE TABLE IF NOT EXISTS " + BUSINESS_TABLE_NAME +
@@ -47,7 +48,8 @@ public class BusinessDBHelper extends SQLiteOpenHelper {
                                         COL_HOURS + " TEXT," +
                                         COL_WEB + " TEXT," +
                                         COL_FAVORITE + " TEXT," +
-                                        COL_POSITION + " TEXT);" ;
+                                        COL_POSITION + " TEXT," +
+                                        COL_IMAGE + " TEXT);" ;
 
     private static final String DELETE_BUSINESS =
             "DELETE FROM " + BUSINESS_TABLE_NAME + ";";
@@ -205,7 +207,7 @@ public class BusinessDBHelper extends SQLiteOpenHelper {
         );
     }
 
-    public long insertBusiness(String category, String name, String address, String city, String state, String zip, String phone, String hours, String web, String position) {
+    public long insertBusiness(String category, String name, String address, String city, String state, String zip, String phone, String hours, String web, String position, String image) {
 
         int favorite = 0; // set all favorite flags to 0
 
@@ -222,6 +224,7 @@ public class BusinessDBHelper extends SQLiteOpenHelper {
         values.put(COL_WEB, web);
         values.put(COL_FAVORITE, favorite);
         values.put(COL_POSITION, position);
+        values.put(COL_IMAGE, image);
 
         SQLiteDatabase db = this.getWritableDatabase();
 
