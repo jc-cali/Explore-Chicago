@@ -43,46 +43,8 @@ public class DetailActivity extends AppCompatActivity {
         String storeimage = markerIntent.getStringExtra("IMAGE");
 
         int id = getResources().getIdentifier("org.jcapps.explorechicago:drawable/" + storeimage, null, null);
-
-
         //mImage.setImageResource(id);
         Picasso.with(getApplicationContext()).load(id).resize(1315,900).centerCrop().into(mImage);
-
-//        switch (name) {
-//            case "Chiu Quon Bakery":
-//                Picasso.with(this).load(R.drawable.chiu_quon).resize(1315,900).centerCrop().into(mImage);
-//                break;
-//            case "Feida Bakery":
-//                Picasso.with(this).load(R.drawable.feida).resize(1315,900).centerCrop().into(mImage);
-//                break;
-//            case "Saint Anna Bakery and Cafe":
-//                Picasso.with(this).load(R.drawable.st_anna).resize(1315,900).centerCrop().into(mImage);
-//                break;
-//            case "Captain Cafe and Bakery":
-//                Picasso.with(this).load(R.drawable.captains).resize(1315,900).centerCrop().into(mImage);
-//                break;
-//            case "Cafe De Victoria (inside Richwell Market)":
-//                Picasso.with(this).load(R.drawable.chinatownsign).resize(1315,900).centerCrop().into(mImage);
-//                break;
-//            case "Dim Dim Dim-Sum and Bakery":
-//                Picasso.with(this).load(R.drawable.dimdim).resize(1315,900).centerCrop().into(mImage);
-//                break;
-//            case "Golden Apple Cafe and Bakery":
-//                Picasso.with(this).load(R.drawable.chinatownsign).resize(1315,900).centerCrop().into(mImage);
-//                break;
-//            case "Sunlight Cafe and Bakery":
-//                Picasso.with(this).load(R.drawable.chinatownsign).resize(1315,900).centerCrop().into(mImage);
-//                break;
-//            case "Tasty Place Bakery and Cafe (#1)":
-//                Picasso.with(this).load(R.drawable.tasty_place2306).resize(1315,900).centerCrop().into(mImage);
-//                break;
-//            case "Tasty Place Bakery and Cafe (#2)":
-//                Picasso.with(this).load(R.drawable.tasty_place2339).resize(1315,900).centerCrop().into(mImage);
-//                break;
-//            default:
-//                break;
-//        }
-
 
         mTxtName.setText(name);
         mTxtAddress.setText(address);

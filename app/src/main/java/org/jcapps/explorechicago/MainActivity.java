@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity
     NavigationView navigationView = null;
     Toolbar toolbar = null;
     ImageView image;
+    Intent mMainActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +53,6 @@ public class MainActivity extends AppCompatActivity
 //        android.support.v4.app.FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
 //        ft.replace(R.id.fragment_container, fragment);
 //        ft.commit();
-
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -82,7 +82,18 @@ public class MainActivity extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+
+            getSupportFragmentManager().executePendingTransactions();
+
+            int count = getSupportFragmentManager().getBackStackEntryCount();
+
+            if (count == 0) {
+                mMainActivity = new Intent(this, MainActivity.class);
+                startActivity(mMainActivity);
+                super.onBackPressed();
+            } else {
+                getSupportFragmentManager().popBackStack();
+            }
         }
 
     }

@@ -25,7 +25,6 @@ public class DetailFragment extends Fragment {
         // Required empty public constructor
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -54,7 +53,6 @@ public class DetailFragment extends Fragment {
 
         int id = getResources().getIdentifier("org.jcapps.explorechicago:drawable/" + storeimage, null, null);
         Picasso.with(getContext()).load(id).resize(1315,900).centerCrop().into(mImage);
-
 
         mTxtName.setText(name);
         mTxtAddress.setText(address);

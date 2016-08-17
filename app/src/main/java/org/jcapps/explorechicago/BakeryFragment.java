@@ -3,6 +3,7 @@ package org.jcapps.explorechicago;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -28,6 +29,7 @@ import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
@@ -50,7 +52,6 @@ public class BakeryFragment extends Fragment implements OnMapReadyCallback{
     public BakeryFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -119,7 +120,7 @@ public class BakeryFragment extends Fragment implements OnMapReadyCallback{
             builder.include(m.getPosition());
         }
         /**initialize the padding for map boundary*/
-        int padding = 300;
+        int padding = 130;
         /**create the bounds from latlngBuilder to set into map camera*/
         LatLngBounds bounds = builder.build();
         /**create the camera with bounds and padding to set into map*/
@@ -172,10 +173,13 @@ public class BakeryFragment extends Fragment implements OnMapReadyCallback{
                     String web = cursor.getString(cursor.getColumnIndex("WEB"));
                     String storeimage = cursor.getString(cursor.getColumnIndex("IMAGE"));
 
-
                     DetailFragment detailFragment=new DetailFragment();
 
-                    getFragmentManager().beginTransaction().replace(R.id.fragment_container, detailFragment).commit();
+                    getFragmentManager().beginTransaction()
+                            .replace(R.id.fragment_container, detailFragment)
+                            .addToBackStack(null)
+                            .commit();
+
                     Bundle bundle=new Bundle();
                     bundle.putString("NAME", name);
                     bundle.putString("ADDRESS", address);
@@ -186,8 +190,8 @@ public class BakeryFragment extends Fragment implements OnMapReadyCallback{
                     bundle.putString("HOURS", hours);
                     bundle.putString("WEB", web);
                     bundle.putString("IMAGE", storeimage);
-                    //set Fragmentclass Arguments
 
+                    //set Fragmentclass Arguments
                     detailFragment.setArguments(bundle);
 
 //                    mDetailIntent.putExtra("NAME", name);
