@@ -157,7 +157,6 @@ public class BakeryFragment extends Fragment implements OnMapReadyCallback{
 
                 cursor = db.getmarkerInfo(String.valueOf(latitude) + "," + String.valueOf(longitude));
 
-
                 if(cursor!=null) {
                     cursor.moveToFirst();
 
@@ -171,6 +170,13 @@ public class BakeryFragment extends Fragment implements OnMapReadyCallback{
                     String phone = cursor.getString(cursor.getColumnIndex("PHONE"));
                     String hours = cursor.getString(cursor.getColumnIndex("HOURS"));
                     String web = cursor.getString(cursor.getColumnIndex("WEB"));
+
+
+//                    Bundle bundle=new Bundle();
+//                    bundle.putString("NAME", name);
+//                    //set Fragmentclass Arguments
+//                    DetailFragment fragobj=new DetailFragment();
+//                    fragobj.setArguments(bundle);
 
                     mDetailIntent.putExtra("NAME", name);
                     mDetailIntent.putExtra("ADDRESS", address);
@@ -187,31 +193,6 @@ public class BakeryFragment extends Fragment implements OnMapReadyCallback{
         });
 
     }
-//    @Override
-//    public void onBackPressed() {
-//        List<Marker> markersList = new ArrayList<Marker>();
-//
-//        /**create for loop for get the latLngbuilder from the marker list*/
-//        LatLngBounds.Builder builder = new LatLngBounds.Builder();
-//        for (Marker m : markersList) {
-//            builder.include(m.getPosition());
-//        }
-//        /**initialize the padding for map boundary*/
-//        int padding = 50;
-//        /**create the bounds from latlngBuilder to set into map camera*/
-//        LatLngBounds bounds = builder.build();
-//        /**create the camera with bounds and padding to set into map*/
-//        final CameraUpdate cu = CameraUpdateFactory.newLatLngBounds(bounds, padding);
-//        /**call the map call back to know map is loaded or not*/
-//        mMap.setOnMapLoadedCallback(new GoogleMap.OnMapLoadedCallback() {
-//            @Override
-//            public void onMapLoaded() {
-//                /**set animated zoom camera into map*/
-//                mMap.animateCamera(cu);
-//            }
-//        });
-//
-//    }
 
 }
 
