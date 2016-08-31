@@ -4,16 +4,16 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_bakery"
-            android:icon="@drawable/ic_cake_black_18dp"
-            android:title="Bakery"/>
-        <!--<item-->
-            <!--android:id="@+id/nav_gallery"-->
-            <!--android:icon="@drawable/ic_menu_gallery"-->
-            <!--android:title="Gallery"/>-->
-        <!--<item-->
-            <!--android:id="@+id/nav_slideshow"-->
-            <!--android:icon="@drawable/ic_menu_slideshow"-->
-            <!--android:title="Slideshow"/>-->
+            android:icon="@drawable/ic_cake_black_24dp"
+            android:title="Bakeries"/>
+        <item
+            android:id="@+id/nav_restaurant"
+            android:icon="@drawable/ic_restaurant_black_24dp"
+            android:title="Restaurants"/>
+        <item
+            android:id="@+id/nav_giftshop"
+            android:icon="@drawable/ic_store_black_24dp"
+            android:title="Giftshops"/>
         <!--<item-->
             <!--android:id="@+id/nav_manage"-->
             <!--android:icon="@drawable/ic_menu_manage"-->
